@@ -2,7 +2,7 @@ node('master')
 {
     stage('Feature-1-Download')
     {
-       git 'https://github.com/selenium-saikrishna/maven.git'
+       git 'https://github.com/selenium-saikrishna/maven2.git'
     }
     stage('Feature-1-Build')
     {
