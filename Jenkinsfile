@@ -11,7 +11,7 @@ node('master')
     stage('Master-Deployment')
     {
         sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.8:/var/lib/tomcat7/webapps/qaenv.war'
-    
+}    
     
     
 
