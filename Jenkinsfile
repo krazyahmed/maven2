@@ -1,26 +1,16 @@
 node('master') 
 {
-    stage('ContinuousDownload')
+    stage('Feature-1-Download')
     {
        git 'https://github.com/selenium-saikrishna/maven.git'
     }
-    stage('ContinuousBuild')
+    stage('Feature-1-Build')
     {
        sh 'mvn package'
     }
-    stage('ContinuousDeployment')
+    stage('Feature-1-Deployment')
     {
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.8:/var/lib/tomcat7/webapps/qaenv.war'
-    }
-    stage('ContinuousTesting')
-    {
-        git 'https://github.com/selenium-saikrishna/TestingNew.git'
-        sh 'java -jar /home/vagrant/.jenkins/workspace/ScriptedPipeline/testing.jar'
-    }
-    stage('ContinuousDelivery')
-    {
-        input message: 'Waiting for approval from Delivery Manager!', submitter: 'Venu'
-        sh 'scp /home/vagrant/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war vagrant@10.0.0.9:/var/lib/tomcat7/webapps/newprod.war'
+        sh 'scp /home/vagrant/.jenkins/workspace/MultibranchPipleine/webapp/target/webapp.war vagrant@10.0.0.8:/var/lib/tomcat7/webapps/feature1.war'
     }
     
     
